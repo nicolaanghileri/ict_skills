@@ -110,18 +110,10 @@ pasteRouter.post(
     const edit_token = "";
 
     const insert = await executeQuery(
-      "INSERT INTO paste (id, content, content_type, encoding, expiration, title, created_at, updated_at, access_token, edit_token) VALUES(?,?,?,?,?,?,?,?,?,?)",
-      [],
-      [],
-      [],
-      [],
-      [],
-      [],
-      [],
-      [],
-      [],
-      []
-    );
+	"INSERT INTO paste (content, content_type, encoding, expiration, title, access_token, edit_token) VALUES (?, ?, ?, ?, ?, ?, ?)",
+  [requestBody.content, requestBody.content_type, requestBody.encoding, requestBody.expiration, requestBody.title, requestBody.access_token, requestBody.edit_token]
+	);
+
   })
 );
 
